@@ -1,0 +1,17 @@
+{
+    "ERR_DUPL_EMAIL": "Email already exists",
+    "ERR_DUPL_PHONE": "Phone number already exists",
+    "ERR_LOGIN_EMAIL_UNVERIFIED": "Email not verified",
+    "ERR_LOGIN_USER_NOT_FND": "Invalid user credentials",
+    "ERR_LOGIN_INCORRECT_PWD": "Invalid user credentials",
+    "ERR_OTP_INVALID": "Invalid or Expired OTP",
+    "ERR_USER_NOT_EXIST": "User Not Found",
+    "ERR_ACC_ALREADY_VERIFIED": "User Account Already Verified",
+    "VERIFICATION_MAIL_SENT": "Verification Email sent",
+    "PWD_RESET_SUCCESS": "Password reset success",
+    "UNAUTHORIZED":"en: Missing Authorization Header11111",
+    "INVALID_CREDENTIALS":"en: Bad Request: User not found",
+    "INVALID_TOKEN":"Invalid Token",
+    "EMPTY_TOKEN":"EMPTY Token",
+    "NO_ORGANISATION_FOUND":"No organisation found"
+}
