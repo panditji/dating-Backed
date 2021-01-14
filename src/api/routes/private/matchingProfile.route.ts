@@ -9,17 +9,17 @@ const router = express.Router();
  * /v1/private/matchingProfile/:
  *   get:
  *     tags:
- *       - User
+ *       - matchingProfile
  *     security:
  *       - bearerAuth: []
- *     summary: search users
+ *     summary: search matchingProfile
  *     parameters:
  *        - in: query
  *          name: filter
  *          schema:
  *            type: string
  *          required: false
- *          description: string on basis on which user are filtered
+ *          description: matchingProfile are filtered
  *     produces:
  *       - application/json
  *     responses:

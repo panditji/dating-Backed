@@ -49,17 +49,6 @@ const suppportGetALL = async (req: any, res: Response, next: NextFunction) => {
     try {
         const supporteRepo = getRepository(Support);
         const userRepo = getRepository(User);
-        // const userExists = await userRepo.findOne()
-        //const data = await supporteRepo.find({ relations: ['status', 'user:{user.id,user.firstName}'] });
-
-
-        // const data = await getRepository(Support).createQueryBuilder("support")
-        //     .leftJoinAndSelect("support.status", "status")
-        //     .leftJoinAndSelect("support.user", "user")
-        //     .select(['support.id', 'support.type', 'support.images', 'support.message', 'status.status', 'user.firstName', 'user.firstName'
-        //         , 'user.lastName', 'user.phoneNumber', 'user.email', 'user.dob', 'user.AboutMe']) // added selection
-        //     .where({ id: 5 })
-        //     .getMany();
         const data = await getRepository(Support).createQueryBuilder("support")
             .leftJoinAndSelect("support.status", "status")
             .leftJoinAndSelect("support.user", "user")

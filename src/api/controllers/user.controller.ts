@@ -216,7 +216,7 @@ const verifyEmail = async (req: Request, res: any, next: NextFunction) => {
       const token = authService().issue({ id: user.id });
       const resUser = {
         firstName: user.firstName,
-        lastNAme: user.lastName,
+        lastName: user.lastName,
         email: user.email,
         phoneNumber: user.phoneNumber,
         userProfilePicture: user.avatar,
@@ -310,7 +310,7 @@ const forgotPassword = async (
       logger.error('User not found to reset pw');
     });
   if (!userExists)
-    return res.status(200).json({
+    return res.status(404).json({
       errCode: 'ERR_USER_NOT_EXIST',
       msg: res.__('ERR_USER_NOT_EXIST'),
     });

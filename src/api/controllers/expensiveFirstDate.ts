@@ -54,8 +54,6 @@ const ExpensiveFirstDateGetALL = async (req: any, res: Response, next: NextFunct
 const ExpensiveFirstDateDeleted = async (req: any, res: Response, next: NextFunction) => {
     try {
         const { id } = req.params
-        // const expensiveFirstDateRepo = getRepository(ExpensiveFirstDateMaster);
-        // const data = await expensiveFirstDateRepo.query(`SELECT * FROM IdealFirstDate where id = '${id}'`)
         const data = await getConnection().createQueryBuilder().delete().from(ExpensiveFirstDateMaster).where("id = :id", { id: id }).execute();
 
         return res.status(201).json({ msg: 'success', data: { data } });
