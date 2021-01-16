@@ -21,7 +21,7 @@ const router = express.Router();
  *             properties:
  *                 oldPassword:
  *                  type: string
- *                 newPassword:
+ *                 password:
  *                  type: string
  *                 repeatNewPassword:
  *                  type: string

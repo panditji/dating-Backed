@@ -26,7 +26,6 @@ const matchCreate = async (req: any, res: Response, next: NextFunction) => {
 const updateMatch = async (req: any, res: Response, next: NextFunction) => {
     try {
         const matchRepo = getRepository(Match);
-        req.body.status = 'active';
         const { id } = req.params
         let userId = req.state.user.id;
         const updateMatch: Partial<Match> = {

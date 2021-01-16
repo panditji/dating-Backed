@@ -46,6 +46,56 @@ router.put('/create', matchCreate);
 
 /**
 * @swagger
+* /v1/private/match/update/{id}:
+*   put:
+*     tags:
+*       - help
+*     security:
+*       - bearerAuth: []
+*     summary: Update match by id
+*     parameters:
+*        - in: path
+*          name: id
+*          schema:
+*            type: integer
+*          required: true
+*          description: Numeric ID of the match to update
+*        - $ref: '#/components/parameters/langQueryParam'
+*     requestBody:
+*       description: Request body
+*       required: true
+*       content:
+*         application/json:
+*           schema:
+*             properties:
+*                 matchUserId:
+*                  type: number
+*                 type:
+*                  type: string
+*                  enum:
+*                    - Matched You
+*                    - Your Matches
+*                 removeFromChat:
+*                  type: string
+*                 status:
+*                  type: string
+*                  enum:
+*                    - Reject,
+*                    - Love,
+*                    - Feeling,
+*                    - Nothing,
+*     produces:
+*       - application/json
+*     responses:
+*       200:
+*         message: OK
+*         description: success
+*/
+
+router.put("/update/:id", updateMatch);
+
+/**
+* @swagger
 * /v1/private/match/{type}:
 *   get:
 *     tags:

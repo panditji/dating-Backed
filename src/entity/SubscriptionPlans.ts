@@ -4,7 +4,13 @@ import { Status } from './Status';
 export enum type {
     MONTHLY = "Monthly",
     QUARTERLY = "Quarterly",
-    YEARLY = "Yearly"
+    YEARLY = "Yearly",
+    FREE = "Free"
+}
+export enum status {
+    ACTIVE = "active",
+    INACTIVE = "inactive",
+    DELETED = "deleted"
 }
 
 @Entity()

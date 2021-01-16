@@ -7,6 +7,7 @@ import bcryptService from '../services/bcrypt.service';
 import authService from '../services/auth.service';
 import emailQueueService from '../services/email-queue.service';
 import { User } from '../../entity/User';
+import { SubscriptionPurchased } from '../../entity/SubscriptionPurchased';
 import { Status, status as userStatus } from '../../entity/Status'
 import { generateOtp, logger } from '../utils';
 import countries from '../utils/countries-list';
@@ -19,6 +20,7 @@ const register = async (req: Request, res: any, next: NextFunction) => {
     const userRepo = getRepository(User);
     const statusRepo = getRepository(Status);
     const rolesRepo = getRepository(Roles);
+    const SubscriptionPurchasedRepo = getRepository(SubscriptionPurchased);
     const { body } = req;
     body.password = bcryptService().password(body);
     let whereEmailQuery: any = [{ email: body.email }];
@@ -81,6 +83,13 @@ const register = async (req: Request, res: any, next: NextFunction) => {
     body.otpCode = generateOtp(4);
     body.otpCodeExpireTime = DateTime.local().plus({ second: 30 }).toISO();
     const user = await userRepo.save(body);
+    if (user) {
+      const insertSubscriptionPurchased: Partial<SubscriptionPurchased> = {
+        userId: user.id,
+        subcriptionPlanId: 4,
+      }
+      await SubscriptionPurchasedRepo.save(insertSubscriptionPurchased);
+    }
     emailQueueService().addToQueue(body.email, body.firstName, `OTP is ${body.otpCode}`);
     res.status(201).json({
       msg: res.__('VERIFICATION_MAIL_SENT'),
