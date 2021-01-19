@@ -10,6 +10,7 @@ export default {
             price: Joi.number(),
             numberOfLove: Joi.number(),
             numberOfFiling: Joi.number(),
+            validateDays: Joi.number(),
             statusId: Joi.number()
         }),
     }),

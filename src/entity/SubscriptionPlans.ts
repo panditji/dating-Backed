@@ -40,6 +40,9 @@ export class SubscriptionPlans {
     @Column({ nullable: true })
     numberOfFiling: number;
 
+    @Column({ nullable: true })
+    validateDays: number;
+
     @Column()
     createdBy: number;
 

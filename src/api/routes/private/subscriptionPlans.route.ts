@@ -36,6 +36,8 @@ const router = express.Router();
 *                  type: number
 *                 numberOfFiling:
 *                  type: number
+*                 validateDays:
+*                  type: number
 *                 statusId:
 *                  type: number
 *     produces:
@@ -79,6 +81,8 @@ router.post('/create', userValidator.subscriptionPlans(), subscriptionPlansCreat
 *                 numberOfLove:
 *                  type: number
 *                 numberOfFiling:
+*                  type: number
+*                 validateDays:
 *                  type: number
 *                 statusId:
 *                  type: number

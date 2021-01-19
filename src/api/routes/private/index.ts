@@ -15,9 +15,13 @@ import helpRouter from "./help.route";
 import subscriptionPlansRouter from "./subscriptionPlans.route"
 import matchingProfileRouter from "./matchingProfile.route"
 import matchRouter from "./match.route"
-
-
+import subscriptionPurchasedRouter from "./subscriptionPurchasedRouter.route"
+import paymentsRouter from "./payments.route";
+import venuesRouter from "./venues.route";
 // Register all routes
+router.use('/venues', venuesRouter)
+router.use('/payments', paymentsRouter)
+router.use('/subscriptionPurchased', subscriptionPurchasedRouter)
 router.use('/match', matchRouter)
 router.use('/matchingProfile', matchingProfileRouter)
 router.use('/subscriptionPlans', subscriptionPlansRouter)

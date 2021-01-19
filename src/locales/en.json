@@ -23,5 +23,7 @@
 	"True": "True",
 	"ERR_Otp_Expired": "ERR_Otp_Expired",
 	"ERR_OTP_NOT_MATCH": "ERR_OTP_NOT_MATCH",
-	"ERR_Status_Not_Defined_By_ADMIN": "ERR_Status_Not_Defined_By_ADMIN"
+	"ERR_Status_Not_Defined_By_ADMIN": "ERR_Status_Not_Defined_By_ADMIN",
+	"Email or Password does not match with your account!": "Email or Password does not match with your account!",
+	"ERR_SubcriptionPlan_Not_Defined_By_ADMIN": "ERR_SubcriptionPlan_Not_Defined_By_ADMIN"
 }

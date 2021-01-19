@@ -81,7 +81,7 @@ const register = async (req: Request, res: any, next: NextFunction) => {
     body.roleId = body.role;
     body.statusId = checkInactiveId.id;
     body.otpCode = generateOtp(4);
-    body.otpCodeExpireTime = DateTime.local().plus({ second: 30 }).toISO();
+    body.otpCodeExpireTime = DateTime.local().plus({ minutes: 5 }).toISO();
     const user = await userRepo.save(body);
     if (user) {
       const insertSubscriptionPurchased: Partial<SubscriptionPurchased> = {
@@ -161,8 +161,10 @@ const login = async (req: Request, res: any, next: NextFunction) => {
         return res.status(200).json({ token, user: resUser });
       }
       return res.status(401).json({
-        errCode: 'ERR_LOGIN_INCORRECT_PWD',
-        msg: res.__('ERR_LOGIN_INCORRECT_PWD'),
+        // errCode: 'ERR_LOGIN_INCORRECT_PWD',
+        // msg: res.__('ERR_LOGIN_INCORRECT_PWD'),
+        errCode: 'Email or Password does not match with your account!',
+        msg: res.__('Email or Password does not match with your account!'),
       });
     } catch (err) {
       console.log(err);
@@ -325,7 +327,7 @@ const forgotPassword = async (
     });
   const updateOtp = {
     otpCode: generateOtp(4),
-    otpCodeExpireTime: DateTime.local().plus({ second: 59 }).toISO(),
+    otpCodeExpireTime: DateTime.local().plus({ minutes: 5 }).toISO(),
   };
   const updateResult = await userRepo
     .update({ email: body.email }, updateOtp)

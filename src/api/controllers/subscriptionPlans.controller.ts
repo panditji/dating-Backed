@@ -27,6 +27,7 @@ const subscriptionPlansCreate = async (req: any, res: Response, next: NextFuncti
             price: req.body.price,
             numberOfLove: req.body.numberOfLove,
             numberOfFiling: req.body.numberOfFiling,
+            validateDays: req.body.validateDays,
             createdBy: userId,
             statusId: req.body.statusId
         }
@@ -59,6 +60,7 @@ const updateSubscriptionPlans = async (req: any, res: Response, next: NextFuncti
             price: req.body.price,
             numberOfLove: req.body.numberOfLove,
             numberOfFiling: req.body.numberOfFiling,
+            validateDays: req.body.validateDays,
             updatedBy: userId,
             statusId: req.body.statusId
         }
